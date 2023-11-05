@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+:root {
+	--gradient: linear-gradient(to top, #fd746c, #ff9068);
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	font-family: "Poppins", sans-serif;
+}
+
+.nav {
+	background-color: #fd746c;
+}
+
+.toastify {
+	background: var(--gradient);
+	border: 3px solid #f6524a;
+	border-radius: 0.235rem;
+}
+
+.bg {
+	min-height: 100vh;
+	background: var(--gradient);
+}
+
+p {
+	margin: 0;
+	width: 100%;
+}
+
+.notice_title {
+	font-weight: 500;
+	font-size: 2em;
+	text-align: center;
+}
+
+.noIdeas {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.noIdeas img {
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.noIdeas a {
+	font-style: italic;
+	position: relative;
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+}
+
+.noIdeas a::after {
+	content: "";
+	position: absolute;
+	bottom: 20%;
+	right: -1.5%;
+	z-index: -1;
+	width: 103%;
+	height: 4.5px;
+	opacity: 0.8;
+	-webkit-transform: skew(0.95turn, 0);
+	-ms-transform: skew(0.95turn, 0);
+	transform: skew(0.95turn, 0);
+	background: -webkit-gradient(linear, left top, right top, from(#9796f0), to(#fbc7d4));
+	background: -o-linear-gradient(left, #9796f0, #fbc7d4);
+	background: linear-gradient(to right, #9796f0, #fbc7d4);
+	-webkit-transition: 0.2s ease-out all;
+	-o-transition: 0.2s ease-out all;
+	transition: 0.2s ease-out all;
+}
+
+.noIdeas a:hover::after {
+	height: 83%;
+	bottom: -2%;
+}
+
+.notice {
+	font-size: 1.3em;
+	text-align: justify;
+}
+
+textarea {
+	min-height: 100px;
+	max-height: 300px;
+	resize: vertical;
+	padding: 1.5rem;
+	font-size: 1.1rem;
+	border: none;
+}
+
+textarea:focus {
+	outline: none;
+	-webkit-appearance: unset;
+	-moz-appearance: unset;
+	appearance: unset;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background: var(--gradient);
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: #ffefba;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #dacc9a;
+}
+
+button {
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+}
+
+button.send {
+	border-radius: 0.3rem;
+	font-size: 1.3rem;
+	-webkit-transition: 0.1s all linear;
+	-o-transition: 0.1s all linear;
+	transition: 0.1s all linear;
+	outline: 0.1px solid #0000001b;
+}
+
+button.send:not([disabled]):hover,
+button.active {
+	color: #fff;
+	background-color: #0000009a;
+}
+
+button.send svg {
+	display: none;
+}
+
+.err_notice,
+.ideas {
+	display: none;
+}
+
+.row.suggestions div:first-child {
+	border: 1px solid #e1e1f0;
+	border-left: 0;
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.row.suggestions {
+	border-bottom: 1px solid #e1e1f0;
+}
+
+.row.suggestions * {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+
+.container {
+	position: relative;
+	z-index: 2;
+}
+
+.watermark {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	font-size: 8px;
+	color: #fff;
+	z-index: 1;
+}
+
+[data-target="ideas"] {
+	position: relative;
+}
+
+.count {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-transform: translate(50%, -50%);
+	-ms-transform: translate(50%, -50%);
+	transform: translate(50%, -50%);
+	background: #ffff00;
+	color: #000;
+	padding: 0.5rem;
+	border-radius: 50%;
+	font-size: 13px;
+	width: 25px;
+	height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+	.row.suggestions div:first-child {
+		color: red;
+		border: none;
+	}
+	.notice_title {
+		font-size: 1.4rem;
+	}
+	.notice {
+		font-size: 1rem;
+	}
+
+	.noIdeas {
+		font-size: 1.2rem;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	::-webkit-scrollbar {
+		display: none;
+	}
+}
